@@ -1,0 +1,442 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins";
+  box-sizing: border-box;
+  text-decoration: none;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f7f6f9;
+}
+
+.hidden {
+  display: none !important;
+}
+
+#app {
+  display: flex;
+}
+
+/* Error msg */
+
+.error-container {
+  position: fixed;
+  z-index: 1000;
+  bottom: -100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  gap: 0.5rem;
+  transition: 300ms cubic-bezier(0.57, 0.71, 0.04, 0.69);
+}
+
+.error-msg {
+  font-weight: 500;
+}
+
+.error-img {
+  width: 1rem;
+}
+
+/* First Screen */
+
+.first-screen {
+  min-height: 100vh;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  background-color: white;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.main-img {
+  width: 15rem;
+}
+
+.fs-input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: #f7f6f9;
+  border-radius: 10px;
+}
+
+.fs-input-container img {
+  width: 1.8rem;
+  cursor: pointer;
+}
+
+.loading-spinner {
+  width: 1rem;
+  animation: spinner 1s infinite cubic-bezier(0.57, 0.71, 0.04, 0.69);
+}
+
+.fs-input {
+  font-size: 1.2rem;
+  width: 90%;
+  color: black;
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+
+.fs-use-location-btn a {
+  display: block;
+  color: white;
+  background-color: black;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  margin-top: 0.8rem;
+}
+
+/* Main content / Left side */
+
+.main {
+  background-color: #ffff;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+.search-and-geolocation {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.search-city-container {
+  background: #f7f6f9;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+
+.search-city {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+
+.search-btn {
+  width: 1.5rem;
+  cursor: pointer;
+}
+
+.use-curr-location {
+  padding: 0.5rem 1rem;
+  background: black;
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.curr-weather {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.curr-weather-img {
+  width: 10rem;
+}
+
+.curr-weather-description {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.curr-weather-temp {
+  font-size: 4rem;
+  font-weight: 300;
+}
+
+.curr-weather-text {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.curr-location-info {
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+}
+
+.city {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.country {
+  font-weight: 500;
+}
+
+/* Right side / Other informations */
+
+.other-informations-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem;
+}
+
+.unit-change {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.celsius-btn {
+  width: 1rem;
+  height: 1rem;
+  padding: 1.1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: black;
+  color: white;
+  font-weight: 500;
+}
+
+.fahrenheit-btn {
+  width: 1rem;
+  height: 1rem;
+  padding: 1.1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: black;
+  color: white;
+  font-weight: 500;
+}
+
+.forecast {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 1.3rem;
+}
+
+.days {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.day {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.day-name {
+  font-weight: 600;
+}
+
+.day img {
+  width: 3rem;
+}
+
+.min-max-temp {
+  font-weight: 500;
+}
+
+/* Detaljniji prikaz današnje prognoze */
+
+.today-more-info-title {
+  margin-top: 1rem;
+}
+
+.today-info-boxes {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.info-box {
+  padding: 0.5rem 1.5rem;
+  background: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.info-box-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.ib-title {
+  font-weight: 500;
+  color: #787878;
+}
+
+.ib-value {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.info-box-title img {
+  width: 2.5rem;
+}
+
+.additional-info {
+  font-weight: 600;
+}
+
+.value-unit {
+  font-size: 1.5rem;
+}
+
+.sun-set-rise {
+  display: flex;
+
+  gap: 0.5rem;
+}
+
+.sun-set-rise img {
+  width: 2rem;
+}
+
+.sun-set-rise-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.sun-set-rise-title {
+  color: #787878;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.sunset-time,
+.sunrise-time {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.winddirection {
+  display: flex;
+  align-items: center;
+}
+
+.winddirection-img {
+  width: 2rem;
+}
+
+@keyframes spinner {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive design */
+
+@media only screen and (max-width: 1210px) {
+  #app {
+    flex-direction: column;
+  }
+
+  .main {
+    flex-direction: row;
+    min-height: auto;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .curr-weather {
+    margin-top: 0;
+    flex-direction: row;
+  }
+
+  .curr-location-info {
+    margin-top: 0;
+  }
+
+  .today-more-info-title {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 590px) {
+  .main {
+    align-items: center;
+    justify-content: center;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .curr-location-info {
+    margin-right: auto;
+  }
+
+  .title {
+    margin-top: 2rem;
+  }
+
+  .forecast {
+    text-align: center;
+  }
+
+  .days {
+    justify-content: center;
+  }
+
+  .today-more-info-title {
+    text-align: center;
+    margin-top: 3rem;
+  }
+}
+@media only screen and (max-width: 405px) {
+  .days {
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 1070px) {
+  .info-box {
+    flex-grow: 1;
+  }
+}

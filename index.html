@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vremenska prognoza</title>
+
+    <!-- Fotns -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <div class="error-container">
+      <img src="assets/error.svg" alt="Error" class="error-img" />
+      <span class="error-msg"
+        >Problem! Provjerite ime lokacije ili omogućite pristup lokaciji na
+        vašem uređaju.</span
+      >
+    </div>
+    <div class="first-screen">
+      <img src="assets/animated-icons/04d.svg" alt="" class="main-img" />
+      <div class="fs-input-container">
+        <input
+          type="text"
+          class="fs-input"
+          placeholder="Upišite ime lokacije"
+        />
+        <img src="assets/magnify.svg" alt="" class="fs-search-btn" />
+        <img src="assets/spinner.svg" alt="" class="loading-spinner hidden" />
+      </div>
+      <div class="fs-use-location-btn">
+        <a href="">Koristi trenutnu lokaciju</a>
+      </div>
+    </div>
+    <div id="app" class="hidden">
+      <!-- Main content / left side of app -->
+      <div class="main">
+        <div class="search-and-geolocation">
+          <div class="search-city-container">
+            <input
+              type="text"
+              class="search-city"
+              placeholder="Upišite ime lokacije"
+            />
+            <img src="assets/magnify.svg" alt="Search" class="search-btn" />
+            <img
+              src="assets/spinner.svg"
+              alt=""
+              class="loading-spinner hidden"
+            />
+          </div>
+          <a href="" class="use-curr-location">Koristi trenutnu lokaciju</a>
+        </div>
+        <div class="curr-weather">
+          <img
+            src="assets/animated-icons/01d.svg"
+            alt="Current weather"
+            class="curr-weather-img"
+          />
+          <div class="curr-weather-description">
+            <span class="curr-weather-temp">24°C</span>
+            <span class="curr-weather-text">Sunčano</span>
+          </div>
+        </div>
+        <div class="curr-location-info">
+          <span class="city">Srebrenik</span>
+          <span class="country">Bosna i Hercegovina</span>
+        </div>
+      </div>
+
+      <!-- Right side / other informations -->
+
+      <div class="other-informations-container">
+        <!-- Detaljniji prikaz danasnje prognoze -->
+
+        <div class="today-more-info-title">
+          <span class="title">Detaljniji prikaz današnje prognoze</span>
+        </div>
+        <div class="today-info-boxes">
+          <div class="info-box">
+            <div class="info-box-title">
+              <span class="ib-title">UV Index</span
+              ><img src="assets/animated-icons/uv-index.svg" alt="#" />
+            </div>
+            <div class="info-box-value">
+              <span class="ib-value uv-index">5</span>
+            </div>
+            <div class="additional-info">
+              <span class="uvindex-text">Normalno</span>
+            </div>
+          </div>
+          <div class="info-box">
+            <div class="info-box-title">
+              <span class="ib-title">Vjetar</span
+              ><img src="assets/animated-icons/windsock.svg" alt="#" />
+            </div>
+            <div class="info-box-value">
+              <span class="ib-value windspeed"
+                >13 <span class="value-unit">km/h</span></span
+              >
+            </div>
+            <div class="additional-info">
+              <span class="winddirection"
+                ><img
+                  src="assets/animated-icons/compass.svg"
+                  alt=""
+                  class="winddirection-img"
+                />
+                WDW</span
+              >
+            </div>
+          </div>
+          <div class="info-box">
+            <div class="info-box-title">
+              <span class="ib-title">Sunce</span>
+              <img src="assets/animated-icons/01d.svg" alt="" />
+            </div>
+            <div class="sun-set-rise">
+              <img src="assets/animated-icons/sunrise.svg" alt="sunset" />
+              <div class="sun-set-rise-info">
+                <span class="sun-set-rise-title">Izlazak:</span>
+                <span class="sunrise-time">07:34</span>
+              </div>
+            </div>
+            <div class="sun-set-rise">
+              <img src="assets/animated-icons/sunset.svg" alt="sunset" />
+              <div class="sun-set-rise-info">
+                <span class="sun-set-rise-title">Zalazak:</span>
+                <span class="sunset-time">18:45</span>
+              </div>
+            </div>
+          </div>
+          <div class="info-box">
+            <div class="info-box-title">
+              <span class="ib-title">Vlaga</span
+              ><img src="assets/animated-icons/humidity.svg" alt="#" />
+            </div>
+            <div class="info-box-value">
+              <span class="ib-value humidity">13%</span>
+            </div>
+            <div class="additional-info">
+              <span class="humidity-text">Normalno</span>
+            </div>
+          </div>
+          <div class="info-box">
+            <div class="info-box-title">
+              <span class="ib-title">Pritisak</span
+              ><img src="assets/animated-icons/pressure-high.svg" alt="#" />
+            </div>
+            <div class="info-box-value">
+              <span class="ib-value pressure"
+                >1023 <span class="value-unit">hPa</span></span
+              >
+            </div>
+            <!-- <div class="additional-info"><span>Visoko</span></div> -->
+          </div>
+          <div class="info-box">
+            <div class="info-box-title">
+              <span class="ib-title">Kvalitet zraka</span
+              ><img src="assets/animated-icons/fog.svg" alt="#" />
+            </div>
+            <div class="info-box-value">
+              <span class="ib-value airquality">105</span>
+            </div>
+            <div class="additional-info">
+              <span class="airquality-text">Nezdravo</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="unit-change">
+          <div class="celsius-btn"><span>°C</span></div>
+          <div class="fahrenheit-btn"><span>°F</span></div>
+        </div> -->
+        <div class="forecast">
+          <span class="title">Prognoza za narednih 7 dana</span>
+          <div class="days">
+            <div class="day">
+              <span class="day-name">PON</span>
+              <img
+                src="assets/animated-icons/partly-cloudy-day-smoke.svg"
+                alt=""
+              />
+              <span class="min-max-temp">10°/25° C</span>
+            </div>
+            <div class="day">
+              <span class="day-name">UTO</span>
+              <img
+                src="assets/animated-icons/partly-cloudy-day-smoke.svg"
+                alt=""
+              />
+              <span class="min-max-temp">10°/25° C</span>
+            </div>
+            <div class="day">
+              <span class="day-name">SRI</span>
+              <img
+                src="assets/animated-icons/partly-cloudy-day-smoke.svg"
+                alt=""
+              />
+              <span class="min-max-temp">10°/25° C</span>
+            </div>
+            <div class="day">
+              <span class="day-name">ČET</span>
+              <img
+                src="assets/animated-icons/partly-cloudy-day-smoke.svg"
+                alt=""
+              />
+              <span class="min-max-temp">10°/25° C</span>
+            </div>
+            <div class="day">
+              <span class="day-name">PET</span>
+              <img
+                src="assets/animated-icons/partly-cloudy-day-smoke.svg"
+                alt=""
+              />
+              <span class="min-max-temp">10°/25° C</span>
+            </div>
+            <div class="day">
+              <span class="day-name">SUB</span>
+              <img
+                src="assets/animated-icons/partly-cloudy-day-smoke.svg"
+                alt=""
+              />
+              <span class="min-max-temp">10°/25° C</span>
+            </div>
+            <div class="day">
+              <span class="day-name">NED</span>
+              <img
+                src="assets/animated-icons/partly-cloudy-day-smoke.svg"
+                alt=""
+              />
+              <span class="min-max-temp">10°/25° C</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
